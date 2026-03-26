@@ -1,0 +1,1039 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FABIOS S.A. – Producent Osłonek Białkowych</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Source+Sans+3:ital,wght@0,300;0,400;0,500;0,600;1,300&display=swap" rel="stylesheet">
+<style>
+:root{--dark:#1A1A1A;--mid:#555;--muted:#888;--border:#E0E0E0;--light:#F5F5F5;--white:#FFFFFF;--accent:#1A6B3C;--accent2:#24894E;}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{font-family:'Source Sans 3',sans-serif;background:var(--white);color:var(--dark);overflow-x:hidden;}
+.page{display:none;}.page.active{display:block;}
+.topbar{background:var(--light);border-bottom:1px solid var(--border);padding:0 6vw;display:flex;justify-content:flex-end;align-items:center;height:36px;gap:2rem;}
+.topbar a,.topbar span{font-size:.72rem;color:var(--muted);letter-spacing:.05em;text-decoration:none;transition:color .2s;}
+.topbar a:hover{color:var(--accent);}.topbar .sep{color:var(--border);}
+.navbar{background:var(--white);border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;padding:0 6vw;height:70px;position:sticky;top:0;z-index:200;}
+.logo-wrap{display:flex;align-items:center;text-decoration:none;cursor:pointer;}
+.nav-links{display:flex;list-style:none;}
+.nav-links a{display:block;padding:0 .9rem;height:70px;line-height:70px;font-size:.76rem;font-weight:500;letter-spacing:.07em;text-transform:uppercase;color:var(--mid);text-decoration:none;border-bottom:3px solid transparent;transition:color .2s,border-color .2s;cursor:pointer;}
+.nav-links a:hover,.nav-links a.active{color:var(--accent);border-color:var(--accent);}
+.nav-btn{padding:.6rem 1.4rem;background:var(--accent);color:var(--white);font-size:.75rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;cursor:pointer;transition:background .2s;border:none;font-family:'Source Sans 3',sans-serif;}
+.nav-btn:hover{background:var(--accent2);}
+.divider{height:1px;background:var(--border);}
+.sect{padding:6rem 6vw;}.sect-light{background:var(--light);}.sect-white{background:var(--white);}
+.s-tag{display:inline-flex;align-items:center;gap:.6rem;font-size:.69rem;font-weight:600;letter-spacing:.22em;text-transform:uppercase;color:var(--accent);margin-bottom:.9rem;}
+.s-tag::before{content:'';display:inline-block;width:22px;height:2px;background:var(--accent);}
+.s-title{font-family:'Playfair Display',serif;font-size:clamp(1.9rem,2.6vw,2.7rem);font-weight:600;line-height:1.22;color:var(--dark);margin-bottom:.8rem;}
+.s-sub{font-size:.98rem;line-height:1.85;color:var(--muted);font-weight:300;max-width:58ch;}
+.btn{display:inline-flex;align-items:center;gap:.5rem;padding:.8rem 1.8rem;font-size:.8rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;text-decoration:none;cursor:pointer;border:none;font-family:'Source Sans 3',sans-serif;transition:background .2s,color .2s,border-color .2s;}
+.btn-solid{background:var(--accent);color:var(--white);border:2px solid var(--accent);}
+.btn-solid:hover{background:var(--accent2);border-color:var(--accent2);}
+.btn-outline{background:transparent;color:var(--dark);border:2px solid var(--border);}
+.btn-outline:hover{border-color:var(--accent);color:var(--accent);}
+.read-more{display:inline-flex;align-items:center;gap:.5rem;margin-top:1.6rem;font-size:.78rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--accent);text-decoration:none;border-bottom:2px solid var(--accent);padding-bottom:2px;width:fit-content;cursor:pointer;transition:color .2s,border-color .2s;}
+.read-more:hover{color:var(--dark);border-color:var(--dark);}
+.page-hero{background:var(--light);border-bottom:1px solid var(--border);padding:4rem 6vw 3.5rem;}
+.page-hero-breadcrumb{font-size:.72rem;color:var(--muted);letter-spacing:.08em;text-transform:uppercase;margin-bottom:1rem;display:flex;align-items:center;gap:.5rem;}
+.page-hero-breadcrumb span{cursor:pointer;color:var(--accent);}.page-hero-breadcrumb span:hover{text-decoration:underline;}
+.page-hero h1{font-family:'Playfair Display',serif;font-size:clamp(2.2rem,3.5vw,3.2rem);font-weight:600;color:var(--dark);line-height:1.18;}
+.page-hero p{font-size:1rem;line-height:1.82;color:var(--muted);font-weight:300;max-width:58ch;margin-top:.9rem;}
+.ph-box{background:var(--light);border:1px dashed var(--border);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.6rem;}
+.ph-box .ico{font-size:2rem;opacity:.3;}.ph-box .lbl{font-size:.6rem;letter-spacing:.15em;text-transform:uppercase;color:var(--muted);text-align:center;line-height:1.7;}
+.policy-strip{background:var(--accent);padding:3.5rem 6vw;display:flex;align-items:center;justify-content:space-between;gap:3rem;flex-wrap:wrap;}
+.policy-strip blockquote{font-family:'Playfair Display',serif;font-size:1.35rem;font-weight:500;font-style:italic;color:var(--white);max-width:66ch;line-height:1.5;}
+.policy-strip .ps-btn{flex-shrink:0;padding:.8rem 1.8rem;background:var(--white);color:var(--accent);font-size:.76rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;cursor:pointer;transition:background .2s,color .2s;border:none;font-family:'Source Sans 3',sans-serif;}
+.policy-strip .ps-btn:hover{background:var(--dark);color:var(--white);}
+footer{background:var(--dark);padding:4.5rem 6vw 2rem;}
+.foot-top{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:4rem;padding-bottom:3rem;border-bottom:1px solid rgba(255,255,255,.1);}
+.foot-logo-ph{height:46px;width:140px;margin-bottom:1rem;background:rgba(255,255,255,.06);border:1px dashed rgba(255,255,255,.15);display:flex;align-items:center;justify-content:center;font-size:.55rem;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.28);}
+.foot-about p{font-size:.8rem;line-height:1.8;color:rgba(255,255,255,.38);font-weight:300;max-width:32ch;}
+.foot-contact{margin-top:1rem;display:flex;flex-direction:column;gap:.38rem;}
+.foot-contact span,.foot-contact a{font-size:.78rem;color:rgba(255,255,255,.35);text-decoration:none;transition:color .2s;cursor:pointer;}
+.foot-contact a:hover{color:rgba(255,255,255,.75);}
+.foot-col h5{font-size:.67rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.55);margin-bottom:1.2rem;padding-bottom:.5rem;border-bottom:1px solid rgba(255,255,255,.1);}
+.foot-col ul{list-style:none;display:flex;flex-direction:column;gap:.55rem;}
+.foot-col a{font-size:.78rem;color:rgba(255,255,255,.35);text-decoration:none;cursor:pointer;transition:color .2s;}
+.foot-col a:hover{color:rgba(255,255,255,.75);}
+.foot-bottom{padding-top:2rem;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem;}
+.foot-bottom p{font-size:.71rem;color:rgba(255,255,255,.22);}
+.foot-legal{display:flex;gap:1.5rem;}
+.foot-legal a{font-size:.71rem;color:rgba(255,255,255,.22);text-decoration:none;cursor:pointer;transition:color .2s;}
+.foot-legal a:hover{color:rgba(255,255,255,.55);}
+.hero{display:grid;grid-template-columns:1fr 1fr;min-height:580px;align-items:stretch;}
+.hero-text{display:flex;flex-direction:column;justify-content:center;padding:5rem 4rem 5rem 6vw;background:var(--white);}
+.hero-eyebrow{display:flex;align-items:center;gap:.7rem;font-size:.7rem;font-weight:600;letter-spacing:.22em;text-transform:uppercase;color:var(--accent);margin-bottom:1.6rem;}
+.hero-eyebrow::before{content:'';display:block;width:28px;height:2px;background:var(--accent);}
+.hero-title{font-family:'Playfair Display',serif;font-size:clamp(2.4rem,3.2vw,3.5rem);font-weight:600;line-height:1.18;color:var(--dark);margin-bottom:1.6rem;}
+.hero-desc{font-size:1rem;line-height:1.84;color:var(--muted);font-weight:300;max-width:48ch;margin-bottom:2.5rem;}
+.hero-btns{display:flex;gap:1rem;flex-wrap:wrap;margin-bottom:3rem;}
+.hero-stats{display:flex;border-top:1px solid var(--border);padding-top:2rem;}
+.h-stat{flex:1;}.h-stat+.h-stat{padding-left:2rem;border-left:1px solid var(--border);}
+.h-num{font-family:'Playfair Display',serif;font-size:2.2rem;font-weight:700;color:var(--accent);line-height:1;}
+.h-lbl{font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-top:.3rem;line-height:1.4;}
+.hero-photo{position:relative;overflow:hidden;background:var(--light);}
+.hero-photo img{position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;display:block;object-position:20% 60%;}
+.about-strip{display:flex;flex-direction:column;}
+.about-text{padding:5rem 6vw 4rem;display:block;background:var(--white);}
+.about-text-inner{display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:start;}
+.about-text-right p{font-size:.97rem;line-height:1.9;color:var(--muted);font-weight:300;margin-top:0;}
+.about-text-right p+p{margin-top:1rem;}
+.prod-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border);border:1px solid var(--border);}
+.p-card{background:var(--white);padding:2rem;position:relative;transition:background .2s;cursor:pointer;}
+.p-card::after{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:var(--accent);transform:scaleX(0);transform-origin:left;transition:transform .28s;}
+.p-card:hover{background:#FAFAFA;}.p-card:hover::after{transform:scaleX(1);}
+.p-card.wide{grid-column:span 2;display:grid;grid-template-columns:1fr 1fr;gap:2rem;align-items:center;}
+.p-slot{width:100%;height:130px;margin-bottom:1.3rem;background:var(--light);border:1px dashed var(--border);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.4rem;transition:border-color .2s;}
+.p-card:hover .p-slot{border-color:var(--accent);}.p-card.wide .p-slot{height:180px;margin:0;}
+.p-slot .sl-ico{font-size:1.5rem;opacity:.22;}.p-slot .sl-txt{font-size:.59rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);text-align:center;}
+.p-card h3{font-family:'Playfair Display',serif;font-size:1.1rem;font-weight:600;color:var(--dark);margin-bottom:.5rem;line-height:1.3;}
+.p-card p{font-size:.82rem;line-height:1.76;color:var(--muted);font-weight:300;}
+.p-link{display:inline-flex;align-items:center;gap:.4rem;margin-top:1rem;font-size:.73rem;font-weight:600;letter-spacing:.09em;text-transform:uppercase;color:var(--accent);cursor:pointer;text-decoration:none;transition:color .2s;}
+.p-link:hover{color:var(--dark);}
+.certs-wrap-home{display:grid;grid-template-columns:1fr 2fr;}
+.certs-left{padding:6rem 3rem 6rem 6vw;background:var(--light);display:flex;flex-direction:column;justify-content:center;border-right:1px solid var(--border);}
+.certs-right{padding:6rem 6vw 6rem 3rem;background:var(--white);}
+.cert-grid{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--border);border:1px solid var(--border);}
+.cert-item{background:var(--white);padding:1.7rem;transition:background .2s;}.cert-item:hover{background:var(--light);}
+.cert-badge{display:inline-block;margin-bottom:.7rem;padding:.18rem .6rem;border:1px solid var(--accent);font-size:.6rem;letter-spacing:.17em;text-transform:uppercase;color:var(--accent);}
+.cert-item h4{font-size:.9rem;font-weight:600;color:var(--dark);margin-bottom:.4rem;}
+.cert-item p{font-size:.78rem;line-height:1.72;color:var(--muted);font-weight:300;}
+.markets-wrap{display:grid;grid-template-columns:1fr 1fr;}
+.markets-text{padding:6rem 3rem 6rem 6vw;background:var(--white);display:flex;flex-direction:column;justify-content:center;border-right:1px solid var(--border);}
+.mkt-list{margin-top:2.2rem;}
+.mkt-row{display:grid;grid-template-columns:150px 1fr 36px;align-items:center;gap:1rem;padding:.85rem 0;border-bottom:1px solid var(--border);}
+.mkt-row:first-child{border-top:1px solid var(--border);}
+.mkt-name{font-size:.82rem;font-weight:500;color:var(--dark);}
+.mkt-bg{background:var(--light);height:3px;}.mkt-fill{height:3px;background:var(--accent);}
+.mkt-pct{font-size:.7rem;color:var(--muted);text-align:right;}
+.markets-photo{position:relative;overflow:hidden;background:var(--light);}
+.markets-photo-ph{width:100%;height:100%;min-height:460px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.8rem;}
+.grant-block{margin-top:2.5rem;}.grant-block+.grant-block{margin-top:2rem;}
+.grant-title{font-family:'Playfair Display',serif;font-size:1.08rem;font-weight:600;color:var(--dark);margin-bottom:.6rem;line-height:1.4;}
+.grant-desc{font-size:.87rem;line-height:1.82;color:var(--muted);font-weight:300;margin-bottom:1.3rem;max-width:72ch;}
+.grant-separator{height:1px;background:var(--border);margin:2rem 0;}
+.eu-logos{display:flex;gap:1.5rem;flex-wrap:wrap;align-items:center;}
+/* ===== logo dotacji ===== */
+.eu-logo-img{height:90px;width:auto;max-width:200px;object-fit:contain;display:block;border:1px solid var(--border);padding:.5rem .8rem;background:var(--white);}
+.eu-logo-img:hover{border-color:var(--accent);}
+.newsletter{background:var(--light);border-top:1px solid var(--border);padding:4rem 6vw;display:flex;align-items:flex-start;justify-content:space-between;gap:3rem;flex-wrap:wrap;}
+.newsletter h3{font-family:'Playfair Display',serif;font-size:1.4rem;font-weight:600;color:var(--dark);}
+.newsletter>.nl-left p{font-size:.84rem;color:var(--muted);margin-top:.4rem;font-weight:300;}
+.nl-right{flex:1;max-width:460px;}
+.nl-form{display:flex;}
+.nl-form input{flex:1;padding:.78rem 1.1rem;background:var(--white);border:1px solid var(--border);border-right:none;color:var(--dark);font-family:'Source Sans 3',sans-serif;font-size:.86rem;outline:none;}
+.nl-form input:focus{border-color:var(--accent);}.nl-form input::placeholder{color:var(--muted);}
+.nl-form button{padding:.78rem 1.5rem;background:var(--accent);border:none;color:var(--white);font-size:.74rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;cursor:pointer;font-family:'Source Sans 3',sans-serif;transition:background .2s;}
+.nl-form button:hover{background:var(--accent2);}.nl-consent{font-size:.67rem;color:var(--muted);margin-top:.7rem;line-height:1.6;}
+.onas-grid{display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:start;}
+.onas-text p{font-size:.97rem;line-height:1.88;color:var(--muted);font-weight:300;margin-top:1.2rem;}
+.onas-values{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--border);border:1px solid var(--border);margin-top:4rem;}
+.onas-val{background:var(--white);padding:2rem;border-top:3px solid var(--accent);}
+.onas-val h4{font-family:'Playfair Display',serif;font-size:1.05rem;font-weight:600;color:var(--dark);margin-bottom:.5rem;}
+.onas-val p{font-size:.82rem;line-height:1.72;color:var(--muted);font-weight:300;}
+.prod-full-grid{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--border);border:1px solid var(--border);}
+.prod-full-card{background:var(--white);padding:2.5rem;position:relative;transition:background .2s;cursor:pointer;}
+.prod-full-card::after{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:var(--accent);transform:scaleX(0);transform-origin:left;transition:transform .28s;}
+.prod-full-card:hover{background:#FAFAFA;}.prod-full-card:hover::after{transform:scaleX(1);}
+.prod-full-card h3{font-family:'Playfair Display',serif;font-size:1.2rem;font-weight:600;color:var(--dark);margin-bottom:.6rem;}
+.prod-full-card p{font-size:.85rem;line-height:1.78;color:var(--muted);font-weight:300;}
+.prod-full-card .p-tags{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:1.1rem;}
+.prod-full-card .tag-item{padding:.22rem .7rem;border:1px solid var(--border);font-size:.63rem;letter-spacing:.1em;text-transform:uppercase;color:var(--mid);}
+.prod-info-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--border);border:1px solid var(--border);margin-top:4rem;}
+.prod-info-item{background:var(--light);padding:1.8rem;text-align:center;}
+.prod-info-item h4{font-size:.85rem;font-weight:600;color:var(--dark);margin-bottom:.4rem;}
+.prod-info-item p{font-size:.78rem;line-height:1.65;color:var(--muted);font-weight:300;}
+.cert-full-grid{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--border);border:1px solid var(--border);}
+.cert-full-item{background:var(--white);padding:2.5rem;transition:background .2s;}.cert-full-item:hover{background:var(--light);}
+.cert-full-item .cert-num{font-family:'Playfair Display',serif;font-size:3rem;font-weight:700;color:rgba(26,107,60,.1);line-height:1;margin-bottom:.8rem;}
+.cert-full-item h3{font-size:1.05rem;font-weight:600;color:var(--dark);margin-bottom:.5rem;}
+.cert-full-item p{font-size:.84rem;line-height:1.78;color:var(--muted);font-weight:300;}
+.polityka-grid{display:grid;grid-template-columns:2fr 1fr;gap:5rem;align-items:start;}
+.polityka-text p{font-size:.97rem;line-height:1.9;color:var(--muted);font-weight:300;margin-top:1.1rem;}
+.polityka-text p+p{margin-top:.9rem;}
+.polityka-sidebar{display:flex;flex-direction:column;gap:1px;background:var(--border);border:1px solid var(--border);}
+.pol-side-item{background:var(--white);padding:1.5rem;border-left:3px solid var(--accent);}
+.pol-side-item h5{font-size:.85rem;font-weight:600;color:var(--dark);margin-bottom:.3rem;}
+.pol-side-item p{font-size:.78rem;line-height:1.65;color:var(--muted);font-weight:300;}
+.sprzedaz-grid{display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:start;}
+.kariera-intro{display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:start;margin-bottom:4rem;}
+.kariera-intro p{font-size:.97rem;line-height:1.88;color:var(--muted);font-weight:300;margin-top:1.1rem;}
+.benefits{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-top:2rem;}
+.benefit{padding:1.5rem;border:1px solid var(--border);border-top:3px solid var(--accent);background:var(--white);}
+.benefit h5{font-size:.87rem;font-weight:600;color:var(--dark);margin-bottom:.35rem;}
+.benefit p{font-size:.78rem;line-height:1.65;color:var(--muted);font-weight:300;}
+.oferty-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:1.5rem;}
+.oferty-header h3{font-family:'Playfair Display',serif;font-size:1.5rem;font-weight:600;color:var(--dark);}
+.no-offers{background:var(--light);border:1px solid var(--border);padding:3rem;text-align:center;color:var(--muted);font-size:.9rem;}
+.kontakt-grid{display:grid;grid-template-columns:1fr 1fr;gap:5rem;}
+.kontakt-info{display:flex;flex-direction:column;gap:2rem;}
+.k-block h4{font-size:.75rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--accent);margin-bottom:.6rem;}
+.k-block p,.k-block a{font-size:.95rem;line-height:1.8;color:var(--dark);text-decoration:none;display:block;}
+.k-block a:hover{color:var(--accent);}
+.kontakt-form{display:flex;flex-direction:column;gap:1.2rem;}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:1.2rem;}
+.form-group{display:flex;flex-direction:column;gap:.45rem;}
+.form-group label{font-size:.72rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--mid);}
+.form-group input,.form-group select,.form-group textarea{padding:.78rem 1rem;border:1px solid var(--border);background:var(--white);font-family:'Source Sans 3',sans-serif;font-size:.9rem;color:var(--dark);outline:none;transition:border-color .2s;width:100%;}
+.form-group input:focus,.form-group select:focus,.form-group textarea:focus{border-color:var(--accent);}
+.form-group textarea{resize:vertical;min-height:130px;}
+.form-consent{font-size:.68rem;color:var(--muted);line-height:1.6;}
+.form-submit{align-self:flex-start;}.mapa-ph{height:280px;margin-top:3rem;}
+.field-error{border-color:#c0392b !important;}
+.field-ok{border-color:var(--accent) !important;}
+.field-msg{font-size:.68rem;margin-top:.3rem;font-weight:500;}
+.field-msg.err{color:#c0392b;}.field-msg.ok{color:var(--accent);}
+.factory-banner{position:relative;width:100%;height:420px;overflow:hidden;}
+.factory-banner img{width:100%;height:100%;object-fit:cover;object-position:center 40%;display:block;filter:brightness(0.45) blur(6px);transform:scale(1.08);}
+.factory-banner-overlay{position:absolute;top:0;left:0;right:0;bottom:0;background:linear-gradient(135deg,rgba(26,107,60,0.5) 0%,rgba(0,0,0,0.4) 100%);padding:0 6vw;display:flex;align-items:center;justify-content:space-between;gap:2rem;}
+.factory-banner-text{display:flex;flex-direction:column;gap:.3rem;}
+.factory-stat{font-family:'Playfair Display',serif;font-size:3rem;font-weight:700;color:#FFFFFF;line-height:1;text-shadow:0 2px 12px rgba(0,0,0,0.4);}
+.factory-stat-lbl{font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,0.8);margin-top:.4rem;}
+@media(max-width:1100px){
+  .certs-wrap-home{grid-template-columns:1fr;}.certs-left{border-right:none;border-bottom:1px solid var(--border);}
+  .markets-wrap{grid-template-columns:1fr;}.markets-photo{display:none;}
+  .foot-top{grid-template-columns:1fr 1fr;gap:2.5rem;}
+  .onas-grid,.kontakt-grid,.polityka-grid,.sprzedaz-grid,.kariera-intro{grid-template-columns:1fr;gap:3rem;}
+  .prod-full-grid{grid-template-columns:1fr;}.cert-full-grid{grid-template-columns:1fr;}
+  .prod-info-grid{grid-template-columns:1fr 1fr;}.about-text-inner{grid-template-columns:1fr;gap:2rem;}
+}
+@media(max-width:768px){
+  .nav-links,.nav-btn{display:none;}.hero{grid-template-columns:1fr;}
+  .hero-text,.sect,.about-text{padding:4rem 6vw;}
+  .prod-grid{grid-template-columns:1fr;}.p-card.wide{grid-column:span 1;grid-template-columns:1fr;}
+  .cert-grid,.benefits,.onas-values{grid-template-columns:1fr;}
+  .policy-strip,.newsletter{flex-direction:column;}
+  .foot-top{grid-template-columns:1fr;gap:2rem;}.form-row{grid-template-columns:1fr;}
+  .prod-info-grid{grid-template-columns:1fr 1fr;}
+}
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <span data-t="tb_addr">Białka 556, 34-220 Maków Podhalański</span>
+  <span class="sep">|</span>
+  <a href="/cdn-cgi/l/email-protection#472126252e2834072126252e283469372b"><span class="__cf_email__" data-cfemail="5e383f3c37312d1e383f3c37312d702e32">[email&#160;protected]</span></a>
+  <span class="sep">|</span>
+  <a class="lang-btn" data-lang="pl" onclick="setLang('pl')" style="cursor:pointer;font-weight:700;color:var(--accent)">PL</a>
+  <span class="sep">/</span>
+  <a class="lang-btn" data-lang="en" onclick="setLang('en')" style="cursor:pointer;">EN</a>
+</div>
+
+<nav class="navbar">
+  <div class="logo-wrap" onclick="nav('home')">
+    <img src="logo.png" alt="FABIOS S.A." height="90">
+  </div>
+  <ul class="nav-links">
+    <li><a onclick="nav('onas')" data-page="onas" data-t="nav_onas">O nas</a></li>
+    <li><a onclick="nav('produkty')" data-page="produkty" data-t="nav_produkty">Produkty</a></li>
+    <li><a onclick="nav('certyfikaty')" data-page="certyfikaty" data-t="nav_cert">Certyfikaty</a></li>
+    <li><a onclick="nav('sprzedaz')" data-page="sprzedaz" data-t="nav_sprzedaz">Sprzedaż</a></li>
+    <li><a onclick="nav('dotacje')" data-page="dotacje" data-t="nav_dotacje">Dotacje</a></li>
+    <li><a onclick="nav('kariera')" data-page="kariera" data-t="nav_kariera">Kariera</a></li>
+    <li><a onclick="nav('kontakt')" data-page="kontakt" data-t="nav_kontakt">Kontakt</a></li>
+  </ul>
+  <button class="nav-btn" onclick="nav('kontakt')" data-t="nav_btn">Skontaktuj się</button>
+</nav>
+
+<!-- HOME -->
+<div class="page active" id="page-home">
+  <section class="hero">
+    <div class="hero-text">
+      <div class="hero-eyebrow" data-t="hero_tag">Producent osłonek białkowych</div>
+      <h1 class="hero-title" data-t="hero_h1">Jedyny w Polsce<br>producent osłonek<br>kolagenowych</h1>
+      <p class="hero-desc" data-t="hero_desc">Od 1973 roku dostarczamy wysokiej jakości osłonki białkowe do zakładów mięsnych w Europie i na świecie. Certyfikowana produkcja, globalna dystrybucja, ponad 50 lat doświadczenia.</p>
+      <div class="hero-btns">
+        <button class="btn btn-solid" onclick="nav('produkty')" data-t="hero_btn1">Oferta produktów</button>
+        <button class="btn btn-outline" onclick="nav('kontakt')" data-t="hero_btn2">Pobierz katalog PDF</button>
+      </div>
+      <div class="hero-stats">
+        <div class="h-stat"><div class="h-num">1973</div><div class="h-lbl" data-t="stat1_lbl">Rok założenia</div></div>
+        <div class="h-stat"><div class="h-num">50+</div><div class="h-lbl" data-t="stat2_lbl">Lat na rynku</div></div>
+        <div class="h-stat"><div class="h-num">#1</div><div class="h-lbl" data-t="stat3_lbl">W Polsce</div></div>
+      </div>
+    </div>
+    <div class="hero-photo"><img src="sassss.png" alt="FABIOS S.A."></div>
+  </section>
+  <div class="divider"></div>
+  <section class="about-strip">
+    <div class="about-text">
+      <div class="about-text-inner">
+        <div>
+          <div class="s-tag" data-t="about_tag">O firmie</div>
+          <h2 class="s-title" data-t="about_h2">Fabryka Osłonek<br>Białkowych S.A.</h2>
+        </div>
+        <div class="about-text-right">
+          <p data-t="about_p1">FABIOS S.A. jest jedynym w Polsce producentem osłonek białkowych w różnych typach, kalibrach i kolorach. Od ponad 50 lat nieprzerwanie istnieje na rynku, konsekwentnie rozbudowując zakład i doskonaląc technologię.</p>
+          <p data-t="about_p2">Co miesiąc nasze produkty trafiają do krajów Unii Europejskiej, Europy Wschodniej, Azji, Ameryki i Australii.</p>
+          <span class="read-more" onclick="nav('onas')" data-t="about_more">Czytaj więcej o firmie →</span>
+        </div>
+      </div>
+    </div>
+    <div class="factory-banner">
+      <img src="1774256050089_image.png" alt="Zakład FABIOS S.A.">
+      <div class="factory-banner-overlay">
+        <div class="factory-banner-text"><div class="factory-stat">1973</div><div class="factory-stat-lbl">Rok założenia</div></div>
+        <div class="factory-banner-text"><div class="factory-stat">50+</div><div class="factory-stat-lbl">Lat na rynku</div></div>
+        <div class="factory-banner-text"><div class="factory-stat">#1</div><div class="factory-stat-lbl">W Polsce</div></div>
+        <div class="factory-banner-text"><div class="factory-stat" style="font-size:1.5rem;">Białka 556</div><div class="factory-stat-lbl">Maków Podhalański</div></div>
+      </div>
+    </div>
+  </section>
+  <div class="divider"></div>
+  <section class="sect sect-white">
+    <div style="display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:3rem;flex-wrap:wrap;gap:2rem;">
+      <div><div class="s-tag">Produkty</div><h2 class="s-title">Oferta produktów</h2></div>
+      <button class="btn btn-outline" onclick="nav('produkty')">Zobacz wszystkie →</button>
+    </div>
+    <div class="prod-grid">
+      <div class="p-card wide" onclick="nav('produkty')">
+        <div>
+          <h3>Osłonki tradycyjne</h3>
+          <p>Klasyczne osłonki kolagenowe do szerokiej gamy wędlin. Dostępne w wielu kalibrach, długościach i kolorach.</p>
+          <span class="p-link">Szczegóły produktu →</span>
+        </div>
+       <img src="trasdycykjne.jpeg" alt="Osłonki tradycyjne" style="width:100%;height:180px;object-fit:cover;">
+      </div>
+      <div class="p-card" onclick="nav('produkty')">
+       <img src="wiankowe.jpg" alt="Osłonki wiankowe" style="width:100%;height:130px;object-fit:cover;">
+        <h3>Osłonki wiankowe</h3>
+        <p>Przeznaczone do wyrobów w kształcie wianków. Wysoka elastyczność i trwałość.</p>
+        <span class="p-link">Szczegóły →</span>
+      </div>
+      <div class="p-card" onclick="nav('produkty')">
+       <img src="jadalne.jpg" alt="Osłonki do kiełbas surowych" style="width:100%;height:130px;object-fit:cover;">
+        <h3>Osłonki do kiełbas surowych</h3>
+        <p>Umożliwiają wymianę gazów i dojrzewanie produktu. Optymalna przepuszczalność.</p>
+        <span class="p-link">Szczegóły →</span>
+      </div>
+      <div class="p-card" onclick="nav('produkty')">
+        <img src="jadalne.jpeg" alt="Osłonki jadalne" style="width:100%;height:130px;object-fit:cover;">
+        <h3>Osłonki jadalne</h3>
+        <p>W pełni jadalne osłonki kolagenowe. Najwyższe normy bezpieczeństwa żywności.</p>
+        <span class="p-link">Szczegóły →</span>
+      </div>
+      <div class="p-card" onclick="nav('produkty')">
+        <img src="kolagen.jpg" alt="Folia kolagenowa" style="width:100%;height:130px;object-fit:cover;">
+        <h3>Folia kolagenowa i rękaw foliowy</h3>
+        <p>Innowacyjne produkty dla nowoczesnych linii produkcyjnych.</p>
+        <span class="p-link">Szczegóły →</span>
+      </div>
+    </div>
+    <div style="margin-top:2.5rem;display:flex;gap:1rem;flex-wrap:wrap;">
+      <button class="btn btn-solid" onclick="nav('kontakt')">Pobierz katalog PDF</button>
+      <button class="btn btn-outline" onclick="nav('kontakt')">Zapytaj o ofertę</button>
+    </div>
+  </section>
+  <div class="policy-strip">
+    <blockquote data-t="policy_q">„Firma FABIOS S.A. od 50 lat nieprzerwanie istnieje na rynku, stale doskonaląc technologię produkcji i zdobywając nowe rynki zbytu."</blockquote>
+    <button class="ps-btn" onclick="nav('polityka')" data-t="policy_btn">Polityka firmy →</button>
+  </div>
+  <section class="certs-wrap-home">
+    <div class="certs-left">
+      <div class="s-tag" data-t="cert_tag">Certyfikaty</div>
+      <h2 class="s-title" data-t="cert_h2">Najwyższe normy<br>jakości</h2>
+      <p class="s-sub" data-t="cert_sub">Potwierdzone certyfikatami uznawanymi na rynkach europejskich i światowych.</p>
+      <span class="read-more" onclick="nav('certyfikaty')" data-t="cert_more">Zobacz wszystkie →</span>
+    </div>
+    <div class="certs-right">
+      <div class="cert-grid">
+        <div class="cert-item"><div class="cert-badge">ISO 9001</div><h4 data-t="cert1_h">System Zarządzania Jakością</h4><p data-t="cert1_p">Gwarancja powtarzalnych, wysokich standardów produkcji.</p></div>
+        <div class="cert-item"><div class="cert-badge">ISO 14001</div><h4 data-t="cert2_h">Zarządzanie Środowiskowe</h4><p data-t="cert2_p">Odpowiedzialna produkcja z dbałością o środowisko.</p></div>
+        <div class="cert-item"><div class="cert-badge">HACCP</div><h4 data-t="cert3_h">Bezpieczeństwo żywności</h4><p data-t="cert3_p">Krytyczne punkty kontroli na każdym etapie produkcji.</p></div>
+        <div class="cert-item"><div class="cert-badge">EU Compliance</div><h4 data-t="cert4_h">Zgodność z normami UE</h4><p data-t="cert4_p">Pełna zgodność z wymaganiami unijnymi dla materiałów spożywczych.</p></div>
+      </div>
+    </div>
+  </section>
+  <div class="divider"></div>
+  <section class="markets-wrap">
+    <div class="markets-text">
+      <div class="s-tag" data-t="mkt_tag">Sprzedaż</div>
+      <h2 class="s-title" data-t="mkt_h2">Eksport na<br>5 kontynentów</h2>
+      <p class="s-sub" data-t="mkt_sub">Co miesiąc nasze produkty trafiają do zakładów mięsnych w ponad 30 krajach.</p>
+      <div class="mkt-list">
+        <div class="mkt-row"><span class="mkt-name" data-t="mkt1">Unia Europejska</span><div class="mkt-bg"><div class="mkt-fill" style="width:92%"></div></div><span class="mkt-pct">EU</span></div>
+        <div class="mkt-row"><span class="mkt-name" data-t="mkt2">Europa Wschodnia</span><div class="mkt-bg"><div class="mkt-fill" style="width:68%"></div></div><span class="mkt-pct">EE</span></div>
+        <div class="mkt-row"><span class="mkt-name" data-t="mkt3">Azja</span><div class="mkt-bg"><div class="mkt-fill" style="width:44%"></div></div><span class="mkt-pct">AS</span></div>
+        <div class="mkt-row"><span class="mkt-name" data-t="mkt4">Ameryki</span><div class="mkt-bg"><div class="mkt-fill" style="width:30%"></div></div><span class="mkt-pct">AM</span></div>
+        <div class="mkt-row"><span class="mkt-name" data-t="mkt5">Australia</span><div class="mkt-bg"><div class="mkt-fill" style="width:18%"></div></div><span class="mkt-pct">AU</span></div>
+      </div>
+      <span class="read-more" onclick="nav('sprzedaz')" style="margin-top:2rem;" data-t="mkt_more">Więcej o sprzedaży →</span>
+    </div>
+    <div class="markets-photo">
+      <img src="image-Photoroom.png" alt="Rynki zbytu" style="width:100%;height:100%;min-height:200px;object-fit:cover;">
+    </div>
+  </section>
+  <div class="divider"></div>
+  <section class="sect sect-white">
+    <div style="display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:2rem;flex-wrap:wrap;gap:2rem;">
+      <div><div class="s-tag">Dotacje UE</div><h2 class="s-title">Projekty europejskie</h2></div>
+      <button class="btn btn-outline" onclick="nav('dotacje')">Zobacz wszystkie →</button>
+    </div>
+    <div class="grant-block">
+      <h3 class="grant-title">Zakup aparatury badawczej niezbędnej do przeprowadzenia badań przemysłowych nad osłonką białkową celem uzyskania stabilnych parametrów akceptowalnych przez Zakłady Mięsne</h3>
+      <p class="grant-desc">Projekt współfinansowany ze środków Europejskiego Funduszu Rozwoju Regionalnego.</p>
+      <div class="eu-logos">
+        <img class="eu-logo-img" src="swswswsw2323.png" alt="Unia Europejska – Europejski Fundusz Rozwoju Regionalnego">
+        <img class="eu-logo-img" src="images323232.png" alt="Rzeczpospolita Polska">
+        <img class="eu-logo-img" src="UE_EFRR_rgb-13232.jpg" alt="Fundusze Europejskie – Program Regionalny">
+        <img class="eu-logo-img" src="images45.jpg" alt="Województwo Małopolskie">
+      </div>
+    </div>
+  </section>
+  <div class="newsletter">
+    <div class="nl-left"><h3 data-t="nl_h">Zapisz się na newsletter</h3><p data-t="nl_p">Informacje o nowych produktach i katalogu FABIOS.</p></div>
+    <div class="nl-right">
+      <div class="nl-form"><input type="email" placeholder="Adres e-mail" data-t="nl_ph"><button>Wyślij</button></div>
+      <p class="nl-consent" data-t="nl_consent">Wyrażam zgodę na przetwarzanie danych osobowych w celach marketingowych przez FABIOS S.A. Podanie danych jest dobrowolne.</p>
+    </div>
+  </div>
+  <footer>
+    <div class="foot-top">
+      <div class="foot-about">
+        <img src="logo.png" alt="FABIOS S.A." style="height:46px;width:auto;margin-bottom:1rem;filter:brightness(0) invert(1);opacity:.7;">
+        <p data-t="foot_about">FABIOS S.A. – Fabryka Osłonek Białkowych. Jedyny producent osłonek kolagenowych w Polsce z ponad 50-letnią tradycją.</p>
+        <div class="foot-contact">
+          <span>Białka 556, 34-220 Maków Podhalański</span>
+          <a href="/cdn-cgi/l/email-protection#dfb9bebdb6b0ac9fb9bebdb6b0acf1afb3"><span class="__cf_email__" data-cfemail="137572717a7c60537572717a7c603d637f">[email&#160;protected]</span></a>
+          <span>NIP: 552-010-08-51 · KRS: 0000277728</span>
+        </div>
+      </div>
+      <div class="foot-col"><h5>O nas</h5><ul>
+        <li><a onclick="nav('onas')">O firmie</a></li><li><a onclick="nav('polityka')">Polityka firmy</a></li>
+        <li><a onclick="nav('certyfikaty')">Certyfikaty</a></li><li><a onclick="nav('sprzedaz')">Sprzedaż</a></li>
+        <li><a onclick="nav('kontakt')">Dla akcjonariuszy</a></li>
+      </ul></div>
+      <div class="foot-col"><h5>Produkty</h5><ul>
+        <li><a onclick="nav('produkty')">Informacje ogólne</a></li><li><a onclick="nav('produkty')">Osłonki jadalne</a></li>
+        <li><a onclick="nav('produkty')">Osłonki tradycyjne</a></li><li><a onclick="nav('produkty')">Osłonki wiankowe</a></li>
+        <li><a onclick="nav('produkty')">Folia kolagenowa</a></li>
+      </ul></div>
+      <div class="foot-col"><h5>Informacje</h5><ul>
+        <li><a onclick="nav('dotacje')">Dotacje UE</a></li><li><a onclick="nav('kontakt')">Przetargi</a></li>
+        <li><a onclick="nav('kariera')">Kariera</a></li><li><a onclick="nav('kontakt')">Kontakt</a></li>
+        <li><a onclick="nav('kontakt')">Mapa dojazdu</a></li>
+      </ul></div>
+    </div>
+    <div class="foot-bottom">
+      <p data-t="foot_copy">© 2025 FABIOS S.A. Wszelkie prawa zastrzeżone.</p>
+      <div class="foot-legal"><a href="#">Polityka prywatności</a><a href="#">Cookies</a><a href="#">RODO</a></div>
+    </div>
+  </footer>
+</div>
+
+<!-- O NAS -->
+<div class="page" id="page-onas">
+  <div class="page-hero">
+    <div class="page-hero-breadcrumb"><span onclick="nav('home')" data-t="bc_home">Strona główna</span> / <span data-t="nav_onas">O nas</span></div>
+    <h1 data-t="onas_h1">O firmie FABIOS S.A.</h1>
+    <p>Jedyny producent osłonek białkowych w Polsce z ponad 50-letnią tradycją przemysłową.</p>
+  </div>
+  <section class="sect sect-white">
+    <div class="onas-grid">
+      <div class="onas-text">
+        <div class="s-tag">Historia i misja</div>
+        <h2 class="s-title">Fabryka Osłonek<br>Białkowych S.A.</h2>
+        <p>FABIOS S.A. jest producentem osłonek białkowych w różnych typach, kalibrach i kolorach. Jesteśmy jedynym zakładem w Polsce wytwarzającym osłonki kolagenowe dla przemysłu mięsnego.</p>
+        <p>Decyzja o budowie zakładu w Białce zapadła jeszcze pod koniec lat 60. XX wieku, a produkcję uruchomiono na początku 1973 roku.</p>
+        <p>Co miesiąc nasze produkty trafiają do krajów należących do Unii Europejskiej, ale także do krajów Europy Wschodniej, Azji, Ameryki i Australii.</p>
+        <p>Dziś możemy śmiało powiedzieć, że FABIOS S.A. to firma z ugruntowaną pozycją na rynku europejskim i globalnym.</p>
+      </div>
+      <img src="websitecontent_1501501017_0.jpg" alt="Zakład FABIOS" style="width:100%;height:480px;object-fit:cover;">
+    </div>
+    <div class="onas-values">
+      <div class="onas-val"><h4>Jakość</h4><p>Każdy produkt spełnia rygorystyczne normy jakościowe potwierdzone certyfikatami ISO 9001 i HACCP.</p></div>
+      <div class="onas-val"><h4>Innowacja</h4><p>Stały rozwój technologii produkcji i projekty badawczo-rozwojowe finansowane ze środków UE.</p></div>
+      <div class="onas-val"><h4>Odpowiedzialność</h4><p>Certyfikat ISO 14001 potwierdza nasze zaangażowanie w ochronę środowiska naturalnego.</p></div>
+      <div class="onas-val"><h4>Globalny zasięg</h4><p>Eksport do ponad 30 krajów na 5 kontynentach. Lokalne korzenie, globalny zasięg – to nasza dewiza od 1973 roku.</p></div>
+    </div>
+  </section>
+  <div class="policy-strip">
+    <blockquote>„Od ponad 50 lat nieprzerwanie dostarczamy jakość, która trafia na stoły na każdym kontynencie."</blockquote>
+    <button class="ps-btn" onclick="nav('polityka')">Polityka firmy →</button>
+  </div>
+  <div class="newsletter">
+    <div class="nl-left"><h3 data-t="nl_h">Zapisz się na newsletter</h3><p data-t="nl_p">Informacje o produktach i aktualnościach FABIOS.</p></div>
+    <div class="nl-right"><div class="nl-form"><input type="email" placeholder="Adres e-mail"><button>Wyślij</button></div><p class="nl-consent" data-t="nl_consent">Wyrażam zgodę na przetwarzanie danych osobowych w celach marketingowych przez FABIOS S.A.</p></div>
+  </div>
+  <div id="footer-onas"></div>
+</div>
+
+<!-- PRODUKTY -->
+<div class="page" id="page-produkty">
+  <div class="page-hero">
+    <div class="page-hero-breadcrumb"><span onclick="nav('home')" data-t="bc_home">Strona główna</span> / <span data-t="nav_produkty">Produkty</span></div>
+    <h1 data-t="prod_h1">Oferta produktów</h1>
+    <p>Osłonki białkowe dostępne w różnych typach, kalibrach i kolorach – dopasowane do każdego procesu produkcyjnego.</p>
+  </div>
+  <section class="sect sect-white">
+    <div class="prod-full-grid">
+      <div class="prod-full-card">
+        <img src="trasdycykjne.jpeg" alt="Osłonki tradycyjne" style="width:100%;height:200px;object-fit:cover;margin-bottom:1.5rem;">
+        <h3>Osłonki tradycyjne</h3>
+        <p>Klasyczne osłonki kolagenowe stosowane przy produkcji szerokiej gamy wędlin gotowanych i parzonych.</p>
+        <div class="p-tags"><span class="tag-item">Różne kalibry</span><span class="tag-item">Wielokolorowe</span><span class="tag-item">Wysoka wytrzymałość</span></div>
+      </div>
+      <div class="prod-full-card">
+        <img src="wiankowe.jpg" alt="Osłonki wiankowe" style="width:100%;height:200px;object-fit:cover;margin-bottom:1.5rem;">
+        <h3>Osłonki wiankowe</h3>
+        <p>Przeznaczone do produkcji wyrobów w charakterystycznym kształcie wianków. Wysoka elastyczność i trwałość.</p>
+        <div class="p-tags"><span class="tag-item">Wysoka elastyczność</span><span class="tag-item">Kształt wianka</span><span class="tag-item">Tradycyjne wyroby</span></div>
+      </div>
+      <div class="prod-full-card">
+        <img src="jadalne.jpg" alt="Osłonki do kiełbas surowych" style="width:100%;height:200px;object-fit:cover;margin-bottom:1.5rem;">
+        <h3>Osłonki do kiełbas surowych</h3>
+        <p>Specjalnie opracowane dla wyrobów surowych dojrzewających. Umożliwiają swobodną wymianę gazów.</p>
+        <div class="p-tags"><span class="tag-item">Przepuszczalność pary</span><span class="tag-item">Wymiana gazów</span><span class="tag-item">Dojrzewanie</span></div>
+      </div>
+      <div class="prod-full-card">
+        <img src="jadalne.jpeg" alt="Osłonki jadalne" style="width:100%;height:200px;object-fit:cover;margin-bottom:1.5rem;">
+        <h3>Osłonki jadalne</h3>
+        <p>W pełni jadalne osłonki kolagenowe spełniające najwyższe normy bezpieczeństwa żywności.</p>
+        <div class="p-tags"><span class="tag-item">100% jadalne</span><span class="tag-item">Bezpieczeństwo żywności</span><span class="tag-item">Naturalna</span></div>
+      </div>
+      <div class="prod-full-card">
+        <img src="kolagen.jpg" alt="Folia kolagenowa" style="width:100%;height:200px;object-fit:cover;margin-bottom:1.5rem;">
+        <h3>Folia kolagenowa</h3>
+        <p>Innowacyjny produkt kolagenowy w formie folii przeznaczony do nowoczesnych linii produkcyjnych.</p>
+        <div class="p-tags"><span class="tag-item">Innowacja</span><span class="tag-item">Wysoka barierowość</span><span class="tag-item">Nowoczesne linie</span></div>
+      </div>
+      <div class="prod-full-card">
+        <img src="sassss.png" alt="Rękaw foliowy" style="width:100%;height:200px;object-fit:cover;margin-bottom:1.5rem;">
+        <h3>Rękaw foliowy</h3>
+        <p>Rękaw kolagenowy do zaawansowanych procesów produkcyjnych. Doskonała prezentacja produktu.</p>
+        <div class="p-tags"><span class="tag-item">Różne kalibry</span><span class="tag-item">Długa trwałość</span><span class="tag-item">Dobra prezentacja</span></div>
+      </div>
+    </div>
+    <div class="prod-info-grid">
+      <div class="prod-info-item"><h4>Konfekcjonowanie</h4><p>Dostosowane do wymagań klienta opakowania i konfekcja produktów.</p></div>
+      <div class="prod-info-item"><h4>Drukowanie</h4><p>Możliwość nadruku logo i informacji na osłonce.</p></div>
+      <div class="prod-info-item"><h4>Przechowywanie</h4><p>Szczegółowe instrukcje warunków przechowywania dla każdego produktu.</p></div>
+      <div class="prod-info-item"><h4>Transport</h4><p>Bezpieczna dostawa do zakładów mięsnych na całym świecie.</p></div>
+    </div>
+    <div style="margin-top:3rem;display:flex;gap:1rem;flex-wrap:wrap;">
+      <button class="btn btn-solid" onclick="nav('kontakt')">Pobierz katalog PDF</button>
+      <button class="btn btn-outline" onclick="nav('kontakt')">Zapytaj o ofertę</button>
+    </div>
+  </section>
+  <div class="newsletter"><div class="nl-left"><h3 data-t="nl_h">Zapisz się na newsletter</h3><p data-t="nl_p">Nowe produkty i aktualizacje oferty FABIOS.</p></div><div class="nl-right"><div class="nl-form"><input type="email" placeholder="Adres e-mail"><button>Wyślij</button></div><p class="nl-consent" data-t="nl_consent">Wyrażam zgodę na przetwarzanie danych przez FABIOS S.A.</p></div></div>
+  <div id="footer-produkty"></div>
+</div>
+
+<!-- CERTYFIKATY -->
+<div class="page" id="page-certyfikaty">
+  <div class="page-hero">
+    <div class="page-hero-breadcrumb"><span onclick="nav('home')" data-t="bc_home">Strona główna</span> / <span data-t="nav_cert">Certyfikaty</span></div>
+    <h1 data-t="cert_h1">Nasze certyfikaty</h1>
+    <p>Najwyższe normy jakościowe i środowiskowe potwierdzone certyfikatami uznawanymi na rynkach światowych.</p>
+  </div>
+  <section class="sect sect-white">
+    <div class="cert-full-grid">
+      <div class="cert-full-item"><div class="cert-num">01</div><div class="cert-badge">ISO 9001</div><h3>System Zarządzania Jakością</h3><p>Certyfikat ISO 9001 potwierdza, że procesy produkcyjne FABIOS S.A. spełniają najwyższe normy jakości.</p></div>
+      <div class="cert-full-item"><div class="cert-num">02</div><div class="cert-badge">ISO 14001</div><h3>System Zarządzania Środowiskowego</h3><p>Certyfikat ISO 14001 świadczy o naszym zaangażowaniu w ochronę środowiska naturalnego.</p></div>
+      <div class="cert-full-item"><div class="cert-num">03</div><div class="cert-badge">HACCP</div><h3>Analiza Zagrożeń i Krytyczne Punkty Kontroli</h3><p>System HACCP zapewnia pełne bezpieczeństwo materiałów kontaktujących się z żywnością.</p></div>
+      <div class="cert-full-item"><div class="cert-num">04</div><div class="cert-badge">EU Compliance</div><h3>Zgodność z Normami Unii Europejskiej</h3><p>Nasze produkty spełniają wszystkie wymagania unijne dotyczące materiałów do kontaktu z żywnością.</p></div>
+    </div>
+  </section>
+  <div class="newsletter"><div class="nl-left"><h3>Masz pytania dotyczące certyfikatów?</h3><p>Skontaktuj się z naszym działem jakości.</p></div><div class="nl-right"><div style="margin-top:.5rem;"><button class="btn btn-solid" onclick="nav('kontakt')">Kontakt z działem jakości</button></div></div></div>
+  <div id="footer-certyfikaty"></div>
+</div>
+
+<!-- DOTACJE -->
+<div class="page" id="page-dotacje">
+  <div class="page-hero">
+    <div class="page-hero-breadcrumb"><span onclick="nav('home')" data-t="bc_home">Strona główna</span> / <span data-t="nav_dotacje">Dotacje</span></div>
+    <h1 data-t="dot_h1">Dotacje UE</h1>
+    <p>Projekty dofinansowane ze środków Europejskiego Funduszu Rozwoju Regionalnego.</p>
+  </div>
+  <section class="sect sect-white">
+    <div style="max-width:960px;">
+      <div class="grant-block">
+        <h3 class="grant-title">Zakup aparatury badawczej niezbędnej do przeprowadzenia badań przemysłowych nad osłonką białkową celem uzyskania stabilnych parametrów akceptowalnych przez Zakłady Mięsne</h3>
+        <p class="grant-desc">Projekt współfinansowany ze środków Europejskiego Funduszu Rozwoju Regionalnego.</p>
+        <div class="eu-logos">
+          <img class="eu-logo-img" src="swswswsw2323.png" alt="Unia Europejska"><img class="eu-logo-img" src="images323232.png" alt="Rzeczpospolita Polska">
+          <img class="eu-logo-img" src="UE_EFRR_rgb-13232.jpg" alt="Fundusze Europejskie"><img class="eu-logo-img" src="images45.jpg" alt="Małopolska">
+        </div>
+      </div>
+      <div class="grant-separator"></div>
+      <div class="grant-block">
+        <h3 class="grant-title">Poprawa efektywności energetycznej procesu suszenia kolagenowej osłonki do wędlin. Faza B i R oraz W.</h3>
+        <p class="grant-desc">Projekt współfinansowany ze środków Europejskiego Funduszu Rozwoju Regionalnego.</p>
+        <div class="eu-logos">
+          <img class="eu-logo-img" src="23333.jpg" alt="Unia Europejska">
+        </div>
+      </div>
+      <div class="grant-separator"></div>
+      <div class="grant-block">
+        <p class="grant-desc" style="font-style:italic;">Projekty współfinansowane ze środków Europejskiego Funduszu Rozwoju Regionalnego</p>
+        <div class="eu-logos">
+          <img class="eu-logo-img" src="znak_NSS.png" alt="Unia Europejska"><img class="eu-logo-img" src="UE_EFRR_rgb-13232.jpg" alt="Rzeczpospolita Polska">
+        </div>
+      </div>
+    </div>
+  </section>
+  <div id="footer-dotacje"></div>
+</div>
+
+<!-- POLITYKA -->
+<div class="page" id="page-polityka">
+  <div class="page-hero">
+    <div class="page-hero-breadcrumb"><span onclick="nav('home')" data-t="bc_home">Strona główna</span> / Polityka firmy</div>
+    <h1 data-t="pol_h1">Polityka firmy</h1>
+    <p>Zasady i wartości, którymi kieruje się FABIOS S.A. od ponad 50 lat działalności.</p>
+  </div>
+  <section class="sect sect-white">
+    <div class="polityka-grid">
+      <div class="polityka-text">
+        <div class="s-tag">Polityka firmy</div>
+        <h2 class="s-title">Nasze wartości<br>i zasady</h2>
+        <p>Firma FABIOS S.A. od 50 lat nieprzerwalnie istnieje na rynku. W tym czasie zakład rozbudowywał się, zdobywał kolejne rynki zbytu i poprawiał technologię produkcji.</p>
+        <p>Priorytetem firmy jest dostarczanie produktów najwyższej jakości. Każdy produkt przechodzi rygorystyczną kontrolę zgodną z normami ISO 9001 i HACCP.</p>
+        <p>Dbamy o środowisko naturalne zgodnie z normą ISO 14001. Systematycznie redukujemy zużycie energii i minimalizujemy odpady produkcyjne.</p>
+        <p>Naszą siłą są ludzie – wykwalifikowana kadra zaangażowana w ciągłe doskonalenie procesów produkcyjnych.</p>
+        <p>Stale rozwijamy ofertę produktową, odpowiadając na potrzeby dynamicznie zmieniającego się rynku wędliniarskiego.</p>
+      </div>
+      <div class="polityka-sidebar">
+        <div class="pol-side-item"><h5>Jakość</h5><p>ISO 9001 – rygorystyczna kontrola na każdym etapie produkcji.</p></div>
+        <div class="pol-side-item"><h5>Środowisko</h5><p>ISO 14001 – odpowiedzialna produkcja dbająca o środowisko.</p></div>
+        <div class="pol-side-item"><h5>Bezpieczeństwo</h5><p>HACCP – bezpieczeństwo żywności jako priorytet.</p></div>
+        <div class="pol-side-item"><h5>Innowacja</h5><p>Stały rozwój technologii i nowych produktów.</p></div>
+        <div class="pol-side-item"><h5>Pracownicy</h5><p>Inwestycje w rozwój i bezpieczeństwo kadry.</p></div>
+        <div class="pol-side-item"><h5>Klienci</h5><p>Partnerstwo i terminowość dostaw na całym świecie.</p></div>
+      </div>
+    </div>
+  </section>
+  <div id="footer-polityka"></div>
+</div>
+
+<!-- SPRZEDAŻ -->
+<div class="page" id="page-sprzedaz">
+  <div class="page-hero">
+    <div class="page-hero-breadcrumb"><span onclick="nav('home')" data-t="bc_home">Strona główna</span> / <span data-t="nav_sprzedaz">Sprzedaż</span></div>
+    <h1 data-t="sp_h1">Sprzedaż i eksport</h1>
+    <p>Co miesiąc nasze produkty trafiają do zakładów mięsnych w ponad 30 krajach na 5 kontynentach.</p>
+  </div>
+  <section class="sect sect-white">
+    <div class="sprzedaz-grid">
+      <div>
+        <div class="s-tag">Rynki zbytu</div>
+        <h2 class="s-title">Globalny zasięg<br>dystrybucji</h2>
+        <p class="s-sub">Nasze osłonki trafiają do najlepszych zakładów mięsnych w Europie i na świecie.</p>
+        <div class="mkt-list" style="margin-top:2rem;">
+          <div class="mkt-row"><span class="mkt-name" data-t="mkt1">Unia Europejska</span><div class="mkt-bg"><div class="mkt-fill" style="width:92%"></div></div><span class="mkt-pct">EU</span></div>
+          <div class="mkt-row"><span class="mkt-name" data-t="mkt2">Europa Wschodnia</span><div class="mkt-bg"><div class="mkt-fill" style="width:68%"></div></div><span class="mkt-pct">EE</span></div>
+          <div class="mkt-row"><span class="mkt-name" data-t="mkt3">Azja</span><div class="mkt-bg"><div class="mkt-fill" style="width:44%"></div></div><span class="mkt-pct">AS</span></div>
+          <div class="mkt-row"><span class="mkt-name" data-t="mkt4">Ameryki</span><div class="mkt-bg"><div class="mkt-fill" style="width:30%"></div></div><span class="mkt-pct">AM</span></div>
+          <div class="mkt-row"><span class="mkt-name" data-t="mkt5">Australia</span><div class="mkt-bg"><div class="mkt-fill" style="width:18%"></div></div><span class="mkt-pct">AU</span></div>
+        </div>
+        <div style="margin-top:2.5rem;display:flex;gap:1rem;flex-wrap:wrap;">
+          <button class="btn btn-solid" onclick="nav('kontakt')">Skontaktuj się z handlowcem</button>
+          <button class="btn btn-outline" onclick="nav('kontakt')">Pobierz katalog</button>
+        </div>
+      </div>
+      <img src="ffreeepikban-Photoroom232323.png" alt="Eksport produktów" style="height:460px;width:100%;object-fit:cover;">
+    </div>
+  </section>
+  <section class="sect sect-light">
+    <div class="s-tag">Informacje</div>
+    <h2 class="s-title" style="margin-bottom:2.5rem;">Sposób aplikacji i transport</h2>
+    <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--border);border:1px solid var(--border);">
+      <div style="background:var(--white);padding:2rem;border-top:3px solid var(--accent);"><h5 style="font-size:.87rem;font-weight:600;color:var(--dark);margin-bottom:.5rem;">Sposób aplikacji</h5><p style="font-size:.8rem;line-height:1.7;color:var(--muted);font-weight:300;">Szczegółowe instrukcje aplikacji dla każdego typu osłonki.</p></div>
+      <div style="background:var(--white);padding:2rem;border-top:3px solid var(--accent);"><h5 style="font-size:.87rem;font-weight:600;color:var(--dark);margin-bottom:.5rem;">Konfekcjonowanie</h5><p style="font-size:.8rem;line-height:1.7;color:var(--muted);font-weight:300;">Dostosowane do potrzeb klienta opakowania i ilości zamówieniowe.</p></div>
+      <div style="background:var(--white);padding:2rem;border-top:3px solid var(--accent);"><h5 style="font-size:.87rem;font-weight:600;color:var(--dark);margin-bottom:.5rem;">Transport</h5><p style="font-size:.8rem;line-height:1.7;color:var(--muted);font-weight:300;">Sprawdzona logistyka dostaw do zakładów mięsnych na całym świecie.</p></div>
+      <div style="background:var(--white);padding:2rem;border-top:3px solid var(--accent);"><h5 style="font-size:.87rem;font-weight:600;color:var(--dark);margin-bottom:.5rem;">Przechowywanie</h5><p style="font-size:.8rem;line-height:1.7;color:var(--muted);font-weight:300;">Zalecenia dotyczące optymalnych warunków przechowywania.</p></div>
+    </div>
+  </section>
+  <div id="footer-sprzedaz"></div>
+</div>
+
+<!-- KARIERA -->
+<div class="page" id="page-kariera">
+  <div class="page-hero">
+    <div class="page-hero-breadcrumb"><span onclick="nav('home')" data-t="bc_home">Strona główna</span> / <span data-t="nav_kariera">Kariera</span></div>
+    <h1 data-t="kar_h1">Kariera w FABIOS S.A.</h1>
+    <p>Dołącz do zespołu jedynego producenta osłonek kolagenowych w Polsce.</p>
+  </div>
+  <section class="sect sect-white">
+    <div class="kariera-intro">
+      <div>
+        <div class="s-tag">Dlaczego FABIOS?</div>
+        <h2 class="s-title">Stabilna praca<br>w firmie z tradycją</h2>
+        <p>FABIOS S.A. to stabilne miejsce pracy z ponad 50-letnią tradycją. Oferujemy możliwość rozwoju zawodowego, pracę w nowoczesnym zakładzie produkcyjnym oraz atrakcyjne warunki zatrudnienia.</p>
+        <p>Zakład produkcyjny znajduje się w Białce 556, gmina Maków Podhalański, w malowniczej okolicy Beskidów.</p>
+      </div>
+    </div>
+    <div class="benefits">
+      <div class="benefit"><h5>Stabilne zatrudnienie</h5><p>Umowa o pracę, terminowe wypłaty, pewna firma z wieloletnią historią na rynku polskim i zagranicznym.</p></div>
+      <div class="benefit"><h5>Rozwój zawodowy</h5><p>Szkolenia wewnętrzne i zewnętrzne, kursy branżowe, realna możliwość awansu w strukturach firmy.</p></div>
+      <div class="benefit"><h5>Nowoczesny zakład</h5><p>Praca z nowoczesnym parkiem maszynowym i zaawansowanymi procesami produkcyjnymi klasy europejskiej.</p></div>
+      <div class="benefit"><h5>Lokalizacja – Beskidy</h5><p>Białka 556, gmina Maków Podhalański – praca w pięknym podhalańskim regionie.</p></div>
+    </div>
+    <div style="margin-top:4rem;">
+      <div class="oferty-header"><h3>Aktualne oferty pracy</h3></div>
+      <div class="no-offers">
+        <p>Aktualnie brak otwartych rekrutacji. Zapraszamy do regularnego odwiedzania tej strony.</p>
+        <p style="margin-top:.5rem;">Możesz również przesłać CV na adres: <strong><a href="/cdn-cgi/l/email-protection#f29493909b9d81b29493909b9d81dc829e"><span class="__cf_email__" data-cfemail="aec8cfccc7c1ddeec8cfccc7c1dd80dec2">[email&#160;protected]</span></a></strong></p>
+      </div>
+      <div style="margin-top:2rem;"><button class="btn btn-solid" onclick="nav('kontakt')">Wyślij CV →</button></div>
+    </div>
+  </section>
+  <div id="footer-kariera"></div>
+</div>
+
+<!-- KONTAKT -->
+<div class="page" id="page-kontakt">
+  <div class="page-hero">
+    <div class="page-hero-breadcrumb"><span onclick="nav('home')" data-t="bc_home">Strona główna</span> / <span data-t="nav_kontakt">Kontakt</span></div>
+    <h1 data-t="kon_h1">Kontakt</h1>
+    <p>Skontaktuj się z naszym zespołem. Chętnie odpowiemy na wszelkie pytania dotyczące produktów i oferty.</p>
+  </div>
+  <section class="sect sect-white">
+    <div class="kontakt-grid">
+      <div class="kontakt-info">
+        <div class="k-block"><h4>Adres</h4><p>FABIOS S.A.</p><p>Białka 556</p><p>34-220 Maków Podhalański</p><p>Polska</p></div>
+        <div class="k-block"><h4>Dane rejestrowe</h4><p>NIP: 552-010-08-51</p><p>KRS: 0000277728</p><p>Kapitał zakładowy: 52 500 000 zł</p></div>
+        <div class="k-block"><h4>E-mail</h4><a href="/cdn-cgi/l/email-protection#40262122292f3300262122292f336e302c"><span class="__cf_email__" data-cfemail="640205060d0b17240205060d0b174a1408">[email&#160;protected]</span></a></div>
+        <div class="k-block"><h4>Godziny pracy</h4><p>Poniedziałek – Piątek</p><p>7:00 – 15:00</p></div>
+        <iframe src="https://maps.google.com/maps?q=Białka+556,+34-220+Maków+Podhalański&output=embed" width="100%" height="280" style="border:0;margin-top:3rem;" allowfullscreen loading="lazy"></iframe>
+      </div>
+      <div>
+        <div class="s-tag">Formularz kontaktowy</div>
+        <h2 class="s-title" style="margin-bottom:2rem;">Wyślij wiadomość</h2>
+        <!-- ZMIENIONY FORMULARZ: usunięto pole Firma, dodano walidację imienia i telefonu, usunięto opcję "Zamówienie katalog PDF" -->
+        <form class="kontakt-form" id="contactForm" onsubmit="return submitContactForm(event);">
+          <div class="form-group" id="grp-name">
+            <label>Imię i nazwisko *</label>
+            <input type="text" id="inp-name" placeholder="Jan Kowalski" oninput="validateName()">
+            <span class="field-msg err" id="msg-name" style="display:none;">Imię może zawierać tylko litery.</span>
+          </div>
+          <div class="form-row">
+            <div class="form-group" id="grp-email">
+              <label>E-mail *</label>
+              <input type="email" id="inp-email" placeholder="jan@firma.pl" oninput="validateEmail()">
+              <span class="field-msg err" id="msg-email" style="display:none;">Podaj prawidłowy adres e-mail.</span>
+            </div>
+            <div class="form-group" id="grp-phone">
+              <label>Telefon</label>
+              <div style="display:flex;align-items:stretch;">
+                <span style="padding:.78rem .7rem;border:1px solid var(--border);border-right:none;background:var(--light);font-size:.9rem;color:var(--mid);white-space:nowrap;line-height:1.2;">+48</span>
+                <input type="tel" id="inp-phone" placeholder="000 000 000" maxlength="9" oninput="validatePhone()" style="border-radius:0;flex:1;">
+              </div>
+              <span class="field-msg err" id="msg-phone" style="display:none;">Podaj dokładnie 9 cyfr.</span>
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Temat</label>
+            <select id="inp-topic">
+              <option>Zapytanie o produkt</option>
+              <option>Współpraca handlowa</option>
+              <option>Kariera / CV</option>
+              <option>Inne</option>
+            </select>
+          </div>
+          <div class="form-group" id="grp-msg">
+            <label>Wiadomość *</label>
+            <textarea id="inp-msg" placeholder="Treść wiadomości..." oninput="validateMsg()"></textarea>
+            <span class="field-msg err" id="msg-msg" style="display:none;">Wiadomość nie może być pusta.</span>
+          </div>
+          <p class="form-consent">Wyrażam zgodę na przetwarzanie moich danych osobowych przez FABIOS S.A. z siedzibą w Białka 556, 34-220 Maków Podhalański w celu odpowiedzi na przesłane zapytanie. Podanie danych jest dobrowolne.</p>
+          <button class="btn btn-solid form-submit" type="submit">Wyślij wiadomość →</button>
+          <p id="form-success" style="display:none;font-size:.82rem;color:var(--accent);font-weight:600;margin-top:.5rem;">Dziękujemy! Wiadomość została wysłana.</p>
+        </form>
+      </div>
+    </div>
+  </section>
+  <div id="footer-kontakt"></div>
+</div>
+
+<template id="footer-tpl">
+  <footer>
+    <div class="foot-top">
+      <div class="foot-about">
+        <img src="logo.png" alt="FABIOS S.A." style="height:46px;width:auto;margin-bottom:1rem;filter:brightness(0) invert(1);opacity:.7;">
+        <p data-t="foot_about">FABIOS S.A. – Fabryka Osłonek Białkowych. Jedyny producent osłonek kolagenowych w Polsce.</p>
+        <div class="foot-contact">
+          <span>Białka 556, 34-220 Maków Podhalański</span>
+          <a href="/cdn-cgi/l/email-protection#e48285868d8b97a48285868d8b97ca9488"><span class="__cf_email__" data-cfemail="abcdcac9c2c4d8ebcdcac9c2c4d885dbc7">[email&#160;protected]</span></a>
+          <span>NIP: 552-010-08-51 · KRS: 0000277728</span>
+        </div>
+      </div>
+      <div class="foot-col"><h5>O nas</h5><ul>
+        <li><a onclick="nav('onas')">O firmie</a></li><li><a onclick="nav('polityka')">Polityka firmy</a></li>
+        <li><a onclick="nav('certyfikaty')">Certyfikaty</a></li><li><a onclick="nav('sprzedaz')">Sprzedaż</a></li>
+        <li><a onclick="nav('kontakt')">Dla akcjonariuszy</a></li>
+      </ul></div>
+      <div class="foot-col"><h5>Produkty</h5><ul>
+        <li><a onclick="nav('produkty')">Informacje ogólne</a></li><li><a onclick="nav('produkty')">Osłonki jadalne</a></li>
+        <li><a onclick="nav('produkty')">Osłonki tradycyjne</a></li><li><a onclick="nav('produkty')">Osłonki wiankowe</a></li>
+        <li><a onclick="nav('produkty')">Folia kolagenowa</a></li>
+      </ul></div>
+      <div class="foot-col"><h5>Informacje</h5><ul>
+        <li><a onclick="nav('dotacje')">Dotacje UE</a></li><li><a onclick="nav('kontakt')">Przetargi</a></li>
+        <li><a onclick="nav('kariera')">Kariera</a></li><li><a onclick="nav('kontakt')">Kontakt</a></li>
+        <li><a onclick="nav('kontakt')">Mapa dojazdu</a></li>
+      </ul></div>
+    </div>
+    <div class="foot-bottom">
+      <p data-t="foot_copy">© 2025 FABIOS S.A. Wszelkie prawa zastrzeżone.</p>
+      <div class="foot-legal"><a href="#">Polityka prywatności</a><a href="#">Cookies</a><a href="#">RODO</a></div>
+    </div>
+  </footer>
+</template>
+
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+const footerSlots = ['onas','produkty','certyfikaty','dotacje','polityka','sprzedaz','kariera','kontakt'];
+footerSlots.forEach(id => {
+  const el = document.getElementById('footer-' + id);
+  if(el){ const tpl = document.getElementById('footer-tpl'); el.appendChild(tpl.content.cloneNode(true)); }
+});
+
+function nav(pageId){
+  document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+  const target = document.getElementById('page-' + pageId);
+  if(target){ target.classList.add('active'); window.scrollTo({top:0,behavior:'smooth'}); }
+  document.querySelectorAll('.nav-links a').forEach(a => {
+    a.classList.remove('active');
+    if(a.dataset.page === pageId) a.classList.add('active');
+  });
+}
+
+/* ===== WALIDACJA FORMULARZA KONTAKTOWEGO ===== */
+
+function validateName() {
+  const inp = document.getElementById('inp-name');
+  const msg = document.getElementById('msg-name');
+  // Dopuszcza litery łacińskie i polskie znaki, spacje i myślniki
+  const ok = /^[A-Za-zÀ-öø-ÿąćęłńóśźżĄĆĘŁŃÓŚŹŻ\s\-']+$/.test(inp.value.trim()) && inp.value.trim().length > 0;
+  inp.className = inp.value.trim() === '' ? '' : (ok ? 'field-ok' : 'field-error');
+  msg.style.display = (!ok && inp.value.trim().length > 0) ? 'block' : 'none';
+  return ok;
+}
+
+function validateEmail() {
+  const inp = document.getElementById('inp-email');
+  const msg = document.getElementById('msg-email');
+  const ok = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(inp.value.trim());
+  inp.className = inp.value.trim() === '' ? '' : (ok ? 'field-ok' : 'field-error');
+  msg.style.display = (!ok && inp.value.trim().length > 0) ? 'block' : 'none';
+  return ok;
+}
+
+function validatePhone() {
+  const inp = document.getElementById('inp-phone');
+  const msg = document.getElementById('msg-phone');
+  // Usuwamy wszystko co nie jest cyfrą podczas pisania
+  inp.value = inp.value.replace(/[^0-9]/g, '');
+  const val = inp.value.trim();
+  const ok = val === '' || val.length === 9;
+  inp.className = val === '' ? '' : (ok ? 'field-ok' : 'field-error');
+  msg.style.display = (val.length > 0 && val.length !== 9) ? 'block' : 'none';
+  return ok;
+}
+
+function validateMsg() {
+  const inp = document.getElementById('inp-msg');
+  const msg = document.getElementById('msg-msg');
+  const ok = inp.value.trim().length > 0;
+  inp.className = ok ? 'field-ok' : '';
+  msg.style.display = 'none';
+  return ok;
+}
+
+function submitContactForm(e) {
+  e.preventDefault();
+  const nameOk = validateName();
+  const emailOk = validateEmail();
+  const phoneOk = validatePhone();
+  const msgOk = validateMsg();
+
+  const nameInp = document.getElementById('inp-name');
+  const msgInp = document.getElementById('inp-msg');
+  const emailInp = document.getElementById('inp-email');
+
+  if (!nameOk) {
+    document.getElementById('msg-name').style.display = 'block';
+    nameInp.className = 'field-error';
+  }
+  if (!emailOk) {
+    document.getElementById('msg-email').style.display = 'block';
+    emailInp.className = 'field-error';
+  }
+  if (!msgOk) {
+    document.getElementById('msg-msg').style.display = 'block';
+    msgInp.className = 'field-error';
+  }
+
+  if (nameOk && emailOk && phoneOk && msgOk) {
+    document.getElementById('form-success').style.display = 'block';
+    document.getElementById('contactForm').reset();
+    // Resetuj kolory pól
+    ['inp-name','inp-email','inp-phone','inp-msg'].forEach(id => {
+      const el = document.getElementById(id);
+      if(el) el.className = '';
+    });
+  }
+  return false;
+}
+
+const T = {
+  pl: {
+    tb_addr:'Białka 556, 34-220 Maków Podhalański',
+    nav_onas:'O nas',nav_produkty:'Produkty',nav_cert:'Certyfikaty',nav_sprzedaz:'Sprzedaż',
+    nav_dotacje:'Dotacje',nav_kariera:'Kariera',nav_kontakt:'Kontakt',nav_btn:'Skontaktuj się',
+    hero_tag:'Producent osłonek białkowych',
+    hero_h1:'Jedyny w Polsce<br>producent osłonek<br>kolagenowych',
+    hero_desc:'Od 1973 roku dostarczamy wysokiej jakości osłonki białkowe do zakładów mięsnych w Europie i na świecie. Certyfikowana produkcja, globalna dystrybucja, ponad 50 lat doświadczenia.',
+    hero_btn1:'Oferta produktów',hero_btn2:'Pobierz katalog PDF',
+    stat1_lbl:'Rok założenia',stat2_lbl:'Lat na rynku',stat3_lbl:'W Polsce',
+    about_tag:'O firmie',about_h2:'Fabryka Osłonek<br>Białkowych S.A.',
+    about_p1:'FABIOS S.A. jest jedynym w Polsce producentem osłonek białkowych w różnych typach, kalibrach i kolorach. Od ponad 50 lat nieprzerwanie istnieje na rynku.',
+    about_p2:'Co miesiąc nasze produkty trafiają do krajów Unii Europejskiej, Europy Wschodniej, Azji, Ameryki i Australii.',
+    about_more:'Czytaj więcej o firmie →',
+    policy_q:'„Firma FABIOS S.A. od 50 lat nieprzerwanie istnieje na rynku, stale doskonaląc technologię produkcji i zdobywając nowe rynki zbytu."',
+    policy_btn:'Polityka firmy →',
+    cert_tag:'Certyfikaty',cert_h2:'Najwyższe normy<br>jakości',
+    cert_sub:'Potwierdzone certyfikatami uznawanymi na rynkach europejskich i światowych.',
+    cert_more:'Zobacz wszystkie →',
+    cert1_h:'System Zarządzania Jakością',cert1_p:'Gwarancja powtarzalnych, wysokich standardów produkcji.',
+    cert2_h:'Zarządzanie Środowiskowe',cert2_p:'Odpowiedzialna produkcja z dbałością o środowisko.',
+    cert3_h:'Bezpieczeństwo żywności',cert3_p:'Krytyczne punkty kontroli na każdym etapie produkcji.',
+    cert4_h:'Zgodność z normami UE',cert4_p:'Pełna zgodność z wymaganiami unijnymi dla materiałów spożywczych.',
+    mkt_tag:'Sprzedaż',mkt_h2:'Eksport na<br>5 kontynentów',
+    mkt_sub:'Co miesiąc nasze produkty trafiają do zakładów mięsnych w ponad 30 krajach.',
+    mkt_more:'Więcej o sprzedaży →',
+    mkt1:'Unia Europejska',mkt2:'Europa Wschodnia',mkt3:'Azja',mkt4:'Ameryki',mkt5:'Australia',
+    nl_h:'Zapisz się na newsletter',nl_p:'Informacje o nowych produktach i katalogu FABIOS.',
+    nl_ph:'Adres e-mail',nl_btn:'Wyślij',
+    nl_consent:'Wyrażam zgodę na przetwarzanie danych osobowych w celach marketingowych przez FABIOS S.A. Podanie danych jest dobrowolne.',
+    nl_ok:'Dziękujemy! Zostałeś zapisany do newslettera.',nl_err:'Podaj prawidłowy adres e-mail.',
+    foot_about:'FABIOS S.A. – Fabryka Osłonek Białkowych. Jedyny producent osłonek kolagenowych w Polsce z ponad 50-letnią tradycją.',
+    foot_copy:'© 2025 FABIOS S.A. Wszelkie prawa zastrzeżone.',bc_home:'Strona główna',
+    onas_h1:'O firmie FABIOS S.A.',prod_h1:'Oferta produktów',cert_h1:'Nasze certyfikaty',
+    dot_h1:'Dotacje UE',pol_h1:'Polityka firmy',sp_h1:'Sprzedaż i eksport',
+    kar_h1:'Kariera w FABIOS S.A.',kon_h1:'Kontakt',
+  },
+  en: {
+    tb_addr:'Białka 556, 34-220 Maków Podhalański, Poland',
+    nav_onas:'About us',nav_produkty:'Products',nav_cert:'Certificates',nav_sprzedaz:'Sales',
+    nav_dotacje:'Grants',nav_kariera:'Careers',nav_kontakt:'Contact',nav_btn:'Get in touch',
+    hero_tag:'Collagen casing manufacturer',
+    hero_h1:'Poland\'s only producer<br>of collagen<br>casings',
+    hero_desc:'Since 1973 we have been supplying high-quality protein casings to meat processing plants across Europe and the world. Certified production, global distribution, over 50 years of experience.',
+    hero_btn1:'Our products',hero_btn2:'Download catalogue PDF',
+    stat1_lbl:'Founded',stat2_lbl:'Years on the market',stat3_lbl:'In Poland',
+    about_tag:'About us',about_h2:'Protein Casing<br>Factory S.A.',
+    about_p1:'FABIOS S.A. is Poland\'s only manufacturer of protein casings in various types, calibres and colours. For over 50 years we have continuously operated.',
+    about_p2:'Every month our products reach the EU, Eastern Europe, Asia, the Americas and Australia.',
+    about_more:'Read more about us →',
+    policy_q:'"FABIOS S.A. has been operating uninterruptedly for 50 years, continuously improving production technology and capturing new markets."',
+    policy_btn:'Company policy →',
+    cert_tag:'Certificates',cert_h2:'Highest quality<br>standards',
+    cert_sub:'Confirmed by certificates recognised in European and global markets.',
+    cert_more:'View all →',
+    cert1_h:'Quality Management System',cert1_p:'Guarantee of repeatable, high production standards.',
+    cert2_h:'Environmental Management',cert2_p:'Responsible production with care for the environment.',
+    cert3_h:'Food Safety',cert3_p:'Critical control points at every stage of production.',
+    cert4_h:'EU Compliance',cert4_p:'Full compliance with EU requirements for food-contact materials.',
+    mkt_tag:'Sales',mkt_h2:'Export to<br>5 continents',
+    mkt_sub:'Every month our products reach meat plants in over 30 countries.',
+    mkt_more:'More about sales →',
+    mkt1:'European Union',mkt2:'Eastern Europe',mkt3:'Asia',mkt4:'Americas',mkt5:'Australia',
+    nl_h:'Subscribe to newsletter',nl_p:'Updates on new products and the FABIOS catalogue.',
+    nl_ph:'E-mail address',nl_btn:'Send',
+    nl_consent:'I consent to the processing of my personal data for marketing purposes by FABIOS S.A. Providing data is voluntary.',
+    nl_ok:'Thank you! You have been subscribed to the newsletter.',nl_err:'Please enter a valid e-mail address.',
+    foot_about:'FABIOS S.A. – Protein Casing Factory. Poland\'s only collagen casing manufacturer with over 50 years of tradition.',
+    foot_copy:'© 2025 FABIOS S.A. All rights reserved.',bc_home:'Home',
+    onas_h1:'About FABIOS S.A.',prod_h1:'Product range',cert_h1:'Our certificates',
+    dot_h1:'EU Grants',pol_h1:'Company policy',sp_h1:'Sales & export',
+    kar_h1:'Careers at FABIOS S.A.',kon_h1:'Contact',
+  }
+};
+
+let currentLang = 'pl';
+
+function setLang(lang) {
+  currentLang = lang;
+  const t = T[lang];
+  document.documentElement.lang = lang;
+  document.querySelectorAll('.lang-btn').forEach(b => {
+    b.style.fontWeight = b.dataset.lang === lang ? '700' : '400';
+    b.style.color = b.dataset.lang === lang ? 'var(--accent)' : '';
+  });
+  document.querySelectorAll('[data-t]').forEach(el => {
+    const key = el.dataset.t;
+    if(t[key] !== undefined) {
+      if(el.tagName === 'INPUT' && el.type !== 'submit') { el.placeholder = t[key]; }
+      else if(el.tagName === 'TEXTAREA') { el.placeholder = t[key]; }
+      else { el.innerHTML = t[key]; }
+    }
+  });
+  document.querySelectorAll('.nav-links a[data-page]').forEach(a => {
+    const page = a.dataset.page;
+    const keyMap = {onas:'nav_onas',produkty:'nav_produkty',certyfikaty:'nav_cert',sprzedaz:'nav_sprzedaz',dotacje:'nav_dotacje',kariera:'nav_kariera',kontakt:'nav_kontakt'};
+    if(keyMap[page] && t[keyMap[page]]) a.textContent = t[keyMap[page]];
+  });
+}
+
+function nlSubmit(btn) {
+  const t = T[currentLang];
+  const form = btn.closest('.nl-form') || btn.parentElement;
+  const input = form ? form.querySelector('input[type="email"]') : null;
+  const wrapper = btn.closest('.nl-right') || btn.closest('.newsletter') || btn.parentElement;
+  const email = input ? input.value.trim() : '';
+  const emailOk = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+  wrapper.querySelectorAll('.nl-msg').forEach(m => m.remove());
+  const msg = document.createElement('p');
+  msg.className = 'nl-msg';
+  if (!emailOk) {
+    msg.style.cssText = 'font-size:.75rem;color:#c0392b;margin-top:.5rem;font-weight:500;';
+    msg.textContent = t.nl_err;
+    if(input) input.style.borderColor = '#c0392b';
+  } else {
+    msg.style.cssText = 'font-size:.75rem;color:var(--accent);margin-top:.5rem;font-weight:600;';
+    msg.textContent = t.nl_ok;
+    if(input) { input.value = ''; input.style.borderColor = 'var(--accent)'; }
+  }
+  if(form) form.after(msg);
+}
+
+/* ===== POBIERANIE KATALOGU PDF ===== */
+// Zmień 'katalog.pdf' na dokładną nazwę swojego pliku PDF
+const PDF_FILE = 'files_1746020213_0.pdf';
+
+function downloadCatalogue() {
+  const a = document.createElement('a');
+  a.href = PDF_FILE;
+  a.download = 'FABIOS_katalog.pdf';
+  document.body.appendChild(a);
+  a.click();
+  document.body.removeChild(a);
+}
+
+function attachNewsletterHandlers() {
+  document.querySelectorAll('.nl-form button').forEach(btn => {
+    btn.onclick = function() { nlSubmit(this); };
+  });
+}
+
+function attachCatalogueButtons() {
+  document.querySelectorAll('button').forEach(btn => {
+    const txt = btn.textContent.trim().toLowerCase();
+    if (txt.includes('pobierz katalog') || txt.includes('download catalogue')) {
+      btn.onclick = function(e) { e.preventDefault(); downloadCatalogue(); };
+    }
+  });
+}
+
+window.addEventListener('DOMContentLoaded', () => {
+  setLang('pl');
+  attachNewsletterHandlers();
+  attachCatalogueButtons();
+  setTimeout(() => { attachNewsletterHandlers(); attachCatalogueButtons(); }, 100);
+});
+</script>
+</body>
+</html>
